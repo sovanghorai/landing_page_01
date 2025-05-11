@@ -4,10 +4,14 @@ const twilio = require("twilio");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+const allowedOrigins = ['http://localhost:5173', 'landing-page-01-alpha.vercel.app']
+
+app.use(cors({origin: allowedOrigins, credentials: true}));
 app.use(express.json());
 
 const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
+
 
 app.post("/send-otp", async (req, res) => {
   const { mobile, otp } = req.body;
