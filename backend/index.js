@@ -6,7 +6,8 @@ require("dotenv").config();
 const app = express();
 const allowedOrigins = ['http://localhost:5173', 'landing-page-01-alpha.vercel.app']
 
-app.use(cors({origin: allowedOrigins, credentials: true}));
+//app.use(cors({origin: allowedOrigins, credentials: true}));
+app.use(cors());
 app.use(express.json());
 
 const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
