@@ -51,7 +51,7 @@ const FormSection = () => {
     localStorage.setItem("sentOtp", otp);
   
     try {
-      await axios.post("http://localhost:5000/send-otp", {
+      await axios.post("https://landing-page-01-theta.vercel.app/send-otp", {
         mobile: mobileNumber,
         otp: otp,
       });
